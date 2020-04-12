@@ -9,6 +9,7 @@
 enabled-worlds:
   - survival
   - freebuild
+  - mining
 
 # The maximum distance for /randomtp if no argument is supplied
 # This value is capped at 1,000,000 blocks
