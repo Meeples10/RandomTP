@@ -1,0 +1,24 @@
+name: RandomTP
+main: io.github.meeples10.randomtp.Main
+version: %PROJECT_VERSION%
+author: Meeples10
+description: %PROJECT_DESCRIPTION%
+depend: [MeepCore]
+api-version: 1.15
+commands:
+  randomtp:
+    description: Teleports the user to a random location.
+    usage: /randomtp [distance]
+    aliases: [rtp]
+    permission: randomtp.use
+    default: true
+permissions:
+  randomtp.use:
+    description: Allows players to use /randomtp
+    default: true
+  randomtp.reload:
+    description: Allows players to reload the plugin
+    default: op
+  randomtp.debug:
+    description: Allows players to view debug information
+    default: op
