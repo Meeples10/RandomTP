@@ -59,8 +59,7 @@ public class CommandRandomTeleport implements CommandExecutor {
                 if(cooldown >= Main.getCooldown()) {
                     int x = RandomUtils.randInt(-distance, distance);
                     int z = RandomUtils.randInt(-distance, distance);
-                    Location l = new Location(p.getLocation().getWorld(), x,
-                            p.getLocation().getWorld().getHighestBlockYAt(x, z), z);
+                    Location l = new Location(p.getLocation().getWorld(), x, 256, z);
                     p.teleport(l, TeleportCause.PLUGIN);
                     Main.setLastUse(p.getUniqueId());
                 } else {
