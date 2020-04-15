@@ -37,10 +37,12 @@ public class CommandRandomTeleport implements CommandExecutor {
                             for(UUID u : Main.getLastUses().keySet()) {
                                 long use = System.currentTimeMillis() - Main.getLastUse(u);
                                 sender.sendMessage(Messages.format("%s%s$t: %s",
-                                        use >= Main.getCooldown() ? "$hl" : "$e", u, use + "ms ago"));
+                                        use >= Main.getCooldown() ? "$hl" : "$e", u.toString(), use + "ms ago"));
                             }
                             sender.sendMessage(
                                     Messages.format("$hl[%s]$t Cooldown: $w%s$tms", Main.NAME, Main.getCooldown()));
+                            sender.sendMessage(Messages.format("$hl[%s]$t Maximum distance: $w%s$t blocks", Main.NAME,
+                                    Main.getMaximumDistance()));
                         } else {
                             sender.sendMessage(Messages.noPermissionMessage());
                         }
