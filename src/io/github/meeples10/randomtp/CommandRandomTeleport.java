@@ -20,7 +20,8 @@ public class CommandRandomTeleport implements CommandExecutor {
             if(sender instanceof Player) {
                 Player p = (Player) sender;
                 if(!Main.isEnabled(p.getLocation().getWorld().getName())) {
-                    sender.sendMessage(Messages.formatError("/" + label + " cannot be used in this world."));
+                    sender.sendMessage(Messages.formatError(sender, String
+                            .format(Messages.translate(sender, "command.randomtp.rtp.blacklisted"), "/" + label)));
                     return true;
                 }
                 int distance = Main.getMaximumDistance();
@@ -29,7 +30,7 @@ public class CommandRandomTeleport implements CommandExecutor {
                         if(sender.hasPermission("randomtp.reload")) {
                             reload(sender);
                         } else {
-                            sender.sendMessage(Messages.noPermissionMessage());
+                            sender.sendMessage(Messages.noPermissionMessage(sender));
                         }
                         return true;
                     } else if(args[0].equalsIgnoreCase("debug")) {
@@ -37,21 +38,25 @@ public class CommandRandomTeleport implements CommandExecutor {
                             for(UUID u : Main.getLastUses().keySet()) {
                                 long use = System.currentTimeMillis() - Main.getLastUse(u);
                                 sender.sendMessage(Messages.format("%s%s$t: %s",
-                                        use >= Main.getCooldown() ? "$hl" : "$e", u.toString(), use + "ms ago"));
+                                        use >= Main.getCooldown() ? "$hl" : "$e", u.toString(),
+                                        use + "ms " + Messages.translate(sender, "command.randomtp.debug.ago")));
                             }
-                            sender.sendMessage(
-                                    Messages.format("$hl[%s]$t Cooldown: $w%s$tms", Main.NAME, Main.getCooldown()));
-                            sender.sendMessage(Messages.format("$hl[%s]$t Maximum distance: $w%s$t blocks", Main.NAME,
-                                    Main.getMaximumDistance()));
+                            sender.sendMessage(Messages.format("$hl[%s]$t "
+                                    + Messages.translate(sender, "command.randomtp.debug.cooldown") + ": $w%s$tms",
+                                    Main.NAME, Main.getCooldown()));
+                            sender.sendMessage(Messages.format(
+                                    "$hl[%s]$t " + Messages.translate(sender, "command.randomtp.debug.max")
+                                            + ": $w%s$t " + Messages.translate(sender, "command.randomtp.debug.blocks"),
+                                    Main.NAME, Main.getMaximumDistance()));
                         } else {
-                            sender.sendMessage(Messages.noPermissionMessage());
+                            sender.sendMessage(Messages.noPermissionMessage(sender));
                         }
                         return true;
                     }
                     try {
                         distance = Integer.parseInt(args[0]);
                     } catch(NumberFormatException e) {
-                        sender.sendMessage(Messages.invalidArgument(args[0]));
+                        sender.sendMessage(Messages.invalidArgument(sender, args[0]));
                         return true;
                     }
                 }
@@ -64,22 +69,22 @@ public class CommandRandomTeleport implements CommandExecutor {
                     Main.setLastUse(p.getUniqueId());
                 } else {
                     sender.sendMessage(Messages.format(
-                            "$hl[" + Main.NAME + "]$t You must wait $e%s$t seconds before using this command again.",
+                            "$hl[" + Main.NAME + "]$t " + Messages.translate(sender, "command.randomtp.rtp.cooldown"),
                             ((Main.getCooldown() - cooldown) / 1000)));
                 }
             } else if(args.length > 0 && args[0].equalsIgnoreCase("reload")) {
                 reload(sender);
             } else {
-                sender.sendMessage(Messages.getPlayersOnlyMessage());
+                sender.sendMessage(Messages.getPlayersOnlyMessage(sender));
             }
         } else {
-            sender.sendMessage(Messages.noPermissionMessage());
+            sender.sendMessage(Messages.noPermissionMessage(sender));
         }
         return true;
     }
 
     private static void reload(CommandSender sender) {
-        sender.sendMessage(Messages.reloadAttempt(Main.NAME));
-        sender.sendMessage(Messages.reloadMessage(Main.NAME, Main.loadConfig()));
+        sender.sendMessage(Messages.reloadAttempt(sender, Main.NAME));
+        sender.sendMessage(Messages.reloadMessage(sender, Main.NAME, Main.loadConfig()));
     }
 }
