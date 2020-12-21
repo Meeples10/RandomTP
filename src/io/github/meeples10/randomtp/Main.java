@@ -10,6 +10,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import net.ddns.meepnet.meepcore.I18n;
+
 public class Main extends JavaPlugin {
 
     public static final String NAME = "RandomTP";
@@ -27,6 +29,11 @@ public class Main extends JavaPlugin {
         cfg = new File(df, "config.yml");
         this.getCommand("randomtp").setExecutor(new CommandRandomTeleport());
         loadConfig();
+        try {
+            I18n.loadMessages(NAME);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static boolean loadConfig() {
@@ -76,7 +83,7 @@ public class Main extends JavaPlugin {
     public static void setLastUse(UUID uuid) {
         lastUses.put(uuid, System.currentTimeMillis());
     }
-    
+
     public static HashMap<UUID, Long> getLastUses() {
         return lastUses;
     }
