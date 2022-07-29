@@ -11,6 +11,7 @@ This plugin requires [MeepCore](https://github.com/Meeples10/MeepCore/releases).
 |Command|Description|Permission|
 |-------|-----------|----------|
 |`/rtp`|Teleports the user to a random location.|`randomtp.use`|
+|`/rtp [range]`|Teleports the user to a random location within `[range]` blocks of (0, 0).|`randomtp.use`|
 |`/rtp reload`|Reloads the plugin.|`randomtp.reload`|
 |`/rtp debug`|Shows debug information.|`randomtp.debug`|
 
