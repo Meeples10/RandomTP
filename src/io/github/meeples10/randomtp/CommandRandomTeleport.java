@@ -9,8 +9,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
 
-import net.ddns.meepnet.meepcore.Messages;
-import net.ddns.meepnet.meepcore.RandomUtils;
+import io.github.meeples10.meepcore.Messages;
+import io.github.meeples10.meepcore.RandomUtils;
 
 public class CommandRandomTeleport implements CommandExecutor {
 

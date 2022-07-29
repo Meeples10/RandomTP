@@ -10,7 +10,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import net.ddns.meepnet.meepcore.I18n;
+import io.github.meeples10.meepcore.I18n;
 
 public class Main extends JavaPlugin {
 
