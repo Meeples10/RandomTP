@@ -8,14 +8,12 @@
 
 enabled-worlds:
   - survival
-  - freebuild
-  - mining
 
-# The maximum distance for /randomtp if no argument is supplied
-# This value is capped at 1,000,000 blocks
+# The maximum distance for /randomtp if no argument is supplied.
+# This value is capped at 30,000,000 blocks.
 maximum-distance: 1000000
 
 # The cooldown before players are allowed to use the command again,
-# in milliseconds
-# Set to 0 for no cooldown
+# in milliseconds.
+# Set to 0 for no cooldown.
 cooldown: 120000

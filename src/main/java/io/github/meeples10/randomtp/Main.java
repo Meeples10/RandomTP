@@ -15,7 +15,7 @@ import io.github.meeples10.meepcore.I18n;
 public class Main extends JavaPlugin {
 
     public static final String NAME = "RandomTP";
-    private static final int MAXIMUM_DISTANCE = 10000000;
+    private static final int MAXIMUM_DISTANCE = 30000000;
 
     private static File df, cfg;
     private static List<String> worlds;
