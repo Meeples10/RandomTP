@@ -18,10 +18,10 @@ public class Main extends JavaPlugin {
     private static final int MAXIMUM_DISTANCE = 30000000;
 
     private static File df, cfg;
-    private static List<String> worlds;
-    private static int maximumDistance;
-    private static long cooldown;
-    private static HashMap<UUID, Long> lastUses = new HashMap<UUID, Long>();
+    public static List<String> worlds;
+    public static int maximumDistance;
+    public static long cooldown;
+    public static final HashMap<UUID, Long> LAST_USES = new HashMap<UUID, Long>();
 
     @Override
     public void onEnable() {
@@ -58,33 +58,5 @@ public class Main extends JavaPlugin {
             return false;
         }
         return true;
-    }
-
-    public static boolean isEnabled(String world) {
-        return worlds.contains(world);
-    }
-
-    public static int getMaximumDistance() {
-        return maximumDistance;
-    }
-
-    public static long getCooldown() {
-        return cooldown;
-    }
-
-    public static long getLastUse(UUID uuid) {
-        if(lastUses.containsKey(uuid)) {
-            return lastUses.get(uuid);
-        } else {
-            return cooldown;
-        }
-    }
-
-    public static void setLastUse(UUID uuid) {
-        lastUses.put(uuid, System.currentTimeMillis());
-    }
-
-    public static HashMap<UUID, Long> getLastUses() {
-        return lastUses;
     }
 }
