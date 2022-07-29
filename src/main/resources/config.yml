@@ -1,4 +1,4 @@
-# Enter the names of the worlds where /randomtp should function here
+# The names of the worlds in which /randomtp should function.
 # For example:
 #
 # enabled-worlds:
