@@ -27,7 +27,7 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         df = Bukkit.getServer().getPluginManager().getPlugin(NAME).getDataFolder();
         cfg = new File(df, "config.yml");
-        this.getCommand("randomtp").setExecutor(new CommandRandomTeleport());
+        this.getCommand("randomtp").setExecutor(new CommandRandomTeleport("command.randomtp.rtp.usage"));
         loadConfig();
         try {
             I18n.loadMessages(NAME);

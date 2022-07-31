@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.meeples10</groupId>
 	<artifactId>randomtp</artifactId>
-	<version>1.2.6</version>
+	<version>1.2.7</version>
 	<name>RandomTP</name>
 	<description>Allows players to teleport to a random location.</description>
 	<build>
@@ -60,7 +60,7 @@
 		<dependency>
 			<groupId>io.github.meeples10</groupId>
 			<artifactId>meepcore</artifactId>
-			<version>1.4.1</version>
+			<version>1.4.2</version>
 		</dependency>
 	</dependencies>
 	<properties>
